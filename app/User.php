@@ -47,4 +47,9 @@ class User extends Authenticatable
       return null !== $this->roles()->where('name', $role)->first();
     }
 
+    public function datapanen()
+    {
+      return $this->hasMany('App\datapanen');
+    }
+
 }

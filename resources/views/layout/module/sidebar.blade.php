@@ -12,6 +12,11 @@
                 <i class="nav-icon icon-drop"></i> Daftar Pengguna
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link">
+                <i class="nav-icon icon-drop"></i> Daftar Data Panen
+            </a>
+        </li>
 
             </ul>
 </nav>

@@ -9,7 +9,7 @@
             <h1>Judul - {{ $data->Judul}}</h1>
           </div>
             <div class="card-body">
-              <img src="{{ URL::to('/') }}/images/{{ $data->image}}"class="img-thumbnail" />
+              <img src="{{ URL::to('/') }}/images/{{ $data->image}}" class="img-thumbnail" />
                 <h3>Harga - {{ $data->Harga}}</h3>
                   <h3>Deskripsi - {{ $data->deskripsi}}</h3>
                 <a href="{{ route('datapanen.index')}}" class="btn btn-primary">Back</a>

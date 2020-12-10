@@ -19,7 +19,11 @@ class CreateDatapanensTable extends Migration
             $table->string('image');
             $table->integer('Harga');
             $table->string('deskripsi');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
+
+
         });
     }
 

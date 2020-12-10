@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Petani;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\datapanen;
+use App\User;
+use Illuminate\Support\Facades\DB;
+use Auth;
 
 class DataPanenController extends Controller
 {
@@ -13,11 +16,18 @@ class DataPanenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
     public function index()
     {
+
         $data = datapanen::latest()->paginate(5);
         return view ('petani.index', compact('data'))
                     -> with('i', (request()->input('page', 1) - 1) * 5);
+        /*$data = datapanen::all();
+        dd($data);*/
     }
 
     /**
@@ -27,7 +37,9 @@ class DataPanenController extends Controller
      */
     public function create()
     {
-      return view('petani.create');
+      $user = Auth::user();
+      //dd($user);
+      return view('petani.create', compact('user'));
     }
 
     /**
@@ -45,16 +57,22 @@ class DataPanenController extends Controller
           'deskripsi'     =>  'required'
       ]);
 
+
       $image = $request->file('image');
 
       $new_name = rand() . '.' . $image->getClientOriginalExtension();
       $image->move(public_path('images'), $new_name);
+      $user = Auth::user();
       $form_data = array(
         'Judul'     => $request->Judul,
         'image'     => $new_name,
         'Harga'     => $request->Harga,
-        'deskripsi' => $request->deskripsi
+        'deskripsi' => $request->deskripsi,
+        'user_id'   => $user->id
       );
+
+      $data = $request->all();
+      //dd($data);
 
       datapanen::create($form_data);
 

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Manage Users</div>
 
@@ -11,6 +11,7 @@
                     <table class="table">
                       <thead>
                       <tr>
+                        <th scope="col">id</th>
                         <th scope="col">Nama Lengkap</th>
                         <th scope="col">Email</th>
                         <th scope="col">Alamat</th>
@@ -21,6 +22,7 @@
                       <tbody>
                         @foreach($users as $user)
                         <tr>
+                          <th>{{ $user->id}}</th>
                           <th>{{ $user->nama_lengkap}}</th>
                           <th>{{ $user->email}}</th>
                           <th>{{ $user->alamat}}</th>

@@ -46,6 +46,9 @@ class LoginController extends Controller
       elseif (Auth::user()->hasAnyRole('petani')) {
         $this->redirectTo = route('petani.dashboard');
         return $this->redirectTo;
+      }else {
+        $this->redirectTo = route('pemborong');
+        return $this->redirectTo;
       }
     }
 

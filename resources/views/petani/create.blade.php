@@ -12,9 +12,7 @@
 </div>
 @endif
 
-<div align="right">
-  <a href="{{ route('datapanen.index')}}" class="btn btn-default">Back</a>
-</div>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -22,7 +20,7 @@
                 <div class="card-header">Post Your Data</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('datapanen.store')}}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('datapanen.store', $user->id)}}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -68,11 +66,12 @@
                         </div>
 
                         <div class="form-group row">
-                          <label class="col-md-4 col-form-label text-md-right">Select Image</label>
+                          <label class="col-md-4 col-form-label text-md-right">Pilih Gambar</label>
                             <div class="col-md-6">
                               <input type="file" name="image" />
                             </div>
                           </div>
+
 
 
                         <div class="form-group row mb-0">

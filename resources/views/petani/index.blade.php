@@ -16,14 +16,16 @@
                 </div>
                 <table>
                   <tr align="center">
+                    <th width="10%">Nama User</th>
                     <th width="15%">Judul</th>
-                    <th width="20%">Gambar</th>
+                    <th width="15%">Gambar</th>
                     <th width="10%">Harga</th>
-                    <th width="25%">Deskripsi</th>
+                    <th width="20%">Deskripsi</th>
                     <th width="20%">Action</th>
                   </tr>
                   @foreach($data as $row)
                   <tr align="center">
+                    <td>{{ $row->user_id}}</td>
                     <td>{{ $row->Judul}}</td>
                     <td><img src="{{ URL::to('/')}}/images/{{ $row->image}}" class="img-thumbnail" width="75" /></td>
                     <td>{{ $row->Harga}}</td>

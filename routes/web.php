@@ -20,9 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-/*Route::get('/admin', function(){
-  return 'you are admin';
-})->middleware(['auth','auth.admin']);*/
 
 Route::resource('/admin/users', 'Admin\UsersController', ['except' => ['show','create','store']]);
 
@@ -36,6 +33,17 @@ Route::group(['middleware'=>['auth']], function(){
       return view('admin.dashboard');
     })->name('admin.dashboard');
   });
+
+  Route::prefix('pemborong')->group(function(){
+    Route::get('/',function(){
+      return view('pemborong');
+    })->name('pemborong');
+  });
+});
+
+
+
+Route::group(['middleware'=>['auth']], function(){
   Route::prefix('petani')->group(function(){
     Route::get('/',function(){
       return view('petani.dashboard');
@@ -43,4 +51,19 @@ Route::group(['middleware'=>['auth']], function(){
   });
 });
 
+
+
+
+
+
+
+
+
 Route::resource('/datapanen', 'Petani\DataPanenController');
+Route::get('/pemborong', 'Pemborong\DashboardController@index')->name('pemborong');
+
+
+Route::get('/user/{id}', 'UserController@profile')->name('user.profile');
+Route::get('/edit/user/', 'UserController@edit')->name('user.edit');
+Route::post('/edit/user/', 'UserController@update')->name('user.update');
+//Route::get('/admin/datapanen', 'Admin\DataPanenController@index')->name('datapanen.index');

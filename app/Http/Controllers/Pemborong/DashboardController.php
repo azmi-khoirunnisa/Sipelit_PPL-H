@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Petani;
+namespace App\Http\Controllers\Pemborong;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
-use Auth;
+use App\datapanen;
 
 class DashboardController extends Controller
 {
@@ -14,16 +13,15 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
      public function __construct(){
        $this->middleware('auth');
      }
 
     public function index()
     {
-        $id = Auth::user()->id;
-        //$datapanen = DB::table('datapananens')->where('id',$id)->first();
-        return view ('petani.dashboard');
+        $hasil = datapanen::all();
+
+        return view ('pemborong.dashboard', ['liat'=>$hasil]);
     }
 
     /**
@@ -55,7 +53,7 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

@@ -1,20 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\datapanen;
 
-class CustomerController extends Controller
+class DataPanenController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view ('customer');
-    }
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+   public function index() {
+    return view('admin.datapanen.index')->with('datapanen', datapanen::all());
+ }
 
     /**
      * Show the form for creating a new resource.
