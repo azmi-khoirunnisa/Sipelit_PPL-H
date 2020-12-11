@@ -51,10 +51,10 @@ class DataPanenController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-          'Judul'         =>  'required',
+          'Judul'         =>  'required|alpha',
           'image'         =>  'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-          'Harga'         =>  'required',
-          'deskripsi'     =>  'required'
+          'Harga'         =>  'required|numeric',
+          'deskripsi'     =>  'required|alpha'
       ]);
 
 

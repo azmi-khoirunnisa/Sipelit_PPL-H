@@ -38,6 +38,7 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('/',function(){
       return view('pemborong');
     })->name('pemborong');
+    Route::resource('/tanggapan', 'Pemborong\TanggapanController');
   });
 });
 

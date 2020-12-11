@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use App\tanggapan;
 
 class datapanen extends Model
 {
@@ -14,5 +15,10 @@ class datapanen extends Model
   public function user()
   {
     return $this->belongsTo('App\User');
+  }
+
+  public function tanggapan()
+  {
+    return $this->hasMany('App\tanggapan');
   }
 }

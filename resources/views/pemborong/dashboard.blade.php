@@ -2,15 +2,22 @@
 @section('content')
 <div class="container">
     @foreach($liat as $li)
-      <div class="card" style="width: 18rem;"  align="center" >
-          <img src="{{ URL::to('/')}}/images/{{ $li->image}}" class="card-img-top">
-          <div class="card-body">
-            <h1 class="card-text">{{ $li->Judul}}</h1>
-            <b class="card-text">Rp {{ $li->Harga}}</b>
-            <p class="card-text">{{ $li->deskripsi}}</p>
-          </div>
-      </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card" style="width: 18rem;"  align="center" >
+            <img src="{{ URL::to('/')}}/images/{{ $li->image}}" class="card-img-top">
+            <div class="card-body">
+              <h1 class="card-text">{{ $li->Judul}}</h1>
+              <b class="card-text">Rp {{ $li->Harga}}</b>
+              <p class="card-text">{{ $li->deskripsi}}</p>
+              <div align="center">
+                <a href="{{ route('tanggapan.index')}}" class="btn btn-primary">Tanggapan</a>
+              </div>
+            </div>
 
+        </div>
+      </div>
+    </div>
    @endforeach
 </div>
 
