@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pemborong;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\datapanen;
+use App\berita;
 
 class DashboardController extends Controller
 {
@@ -20,8 +21,8 @@ class DashboardController extends Controller
     public function index()
     {
         $hasil = datapanen::all();
-
-        return view ('pemborong.dashboard', ['liat'=>$hasil]);
+      //  dd($hasil);
+       return view ('pemborong.dashboard', ['liat'=>$hasil]);
     }
 
     /**
@@ -53,7 +54,8 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-
+      $datapanen = datapanen::find($id);
+      return view('pemborong.tanggapan', compact('datapanen'));
     }
 
     /**
@@ -88,5 +90,10 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function berita()
+    {
+      $berita = berita::all();
+      return view('pemborong.berita',compact('berita'));
     }
 }

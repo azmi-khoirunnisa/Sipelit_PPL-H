@@ -53,7 +53,7 @@
 
                   <div class="form-group text-center">
                     <input type="submit" name="edit" class="btn btn-primary input-lg" value="Edit" />
-                    <a href="{{ route('datapanen.index')}}" class="btn btn-default">Back</a>
+                    <a href="{{ route('datapanen.index')}}" class="btn btn-default">Batal</a>
                   </div>
               </form>
             </div>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Auth;
-
+use App\berita;
 class DashboardController extends Controller
 {
     /**
@@ -90,5 +90,11 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function berita()
+    {
+      $berita = berita::all();
+      return view('petani.berita',compact('berita'));
     }
 }

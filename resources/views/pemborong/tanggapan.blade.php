@@ -1,9 +1,8 @@
-@extends('layout.master')
-
+@extends('layout.app2')
 @section('content')
 <br>
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" >
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header"><center>Berikan Tanggapan Anda</center></div>
@@ -46,19 +45,21 @@
                                     </span>
                                 @enderror
                             </div>
+                            <input type="hidden" name="datapanen_id" value="{{ $datapanen->id}}">
                         </div>
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <input type="submit" name="add" class="btn btn-primary input-lg" value="Kirim" href=""/>
-                                <a href="" class="btn btn-warning">Batal</a>
+                                <a href="{{ route('pemborong')}}" class="btn btn-warning">Batal</a>
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 @endsection

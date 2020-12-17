@@ -6,12 +6,18 @@
             </a>
         </li>
 
-        <li class="nav-title">MANAJEMEN PRODUK</li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('datapanen.index') }}">
-                <i class="nav-icon icon-drop"></i> Upload Data Panen
+                <i class="nav-icon icon-drop"></i> Panen
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('petani.berita') }}">
+                <i class="nav-icon icon-book-open"></i> Berita
+            </a>
+        </li>
+
 
             </ul>
 </nav>

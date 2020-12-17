@@ -12,11 +12,10 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header"><a href="{{route('datapanen.create')}}" >Tambah Postingan</a>
+                <div class="card-header"><a href="{{route('datapanen.create')}}" class="btn btn-success">Tambah Data Panen</a>
                 </div>
                 <table>
                   <tr align="center">
-                    <th width="10%">Nama User</th>
                     <th width="15%">Judul</th>
                     <th width="15%">Gambar</th>
                     <th width="10%">Harga</th>
@@ -25,13 +24,12 @@
                   </tr>
                   @foreach($data as $row)
                   <tr align="center">
-                    <td>{{ $row->user_id}}</td>
                     <td>{{ $row->Judul}}</td>
                     <td><img src="{{ URL::to('/')}}/images/{{ $row->image}}" class="img-thumbnail" width="75" /></td>
                     <td>{{ $row->Harga}}</td>
                     <td>{{ $row->deskripsi}}</td>
                     <td>
-                      <a href="{{ route('datapanen.show', $row->id)}}" class="btn btn-primary">Show</a>
+                      <a href="{{ route('datapanen.show', $row->id)}}" class="btn btn-primary">Lihat</a>
                       <a href="{{ route('datapanen.edit', $row->id)}}" class="btn btn-warning">Edit</a>
                       <td>
                       <form action="{{ route('datapanen.destroy', $row->id)}}" method="post">

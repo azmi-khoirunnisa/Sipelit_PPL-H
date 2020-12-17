@@ -118,6 +118,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                                <a href="" class="btn btn-danger">Daftar Sebagai Pemborong</a>
                             </div>
 
                         </div>

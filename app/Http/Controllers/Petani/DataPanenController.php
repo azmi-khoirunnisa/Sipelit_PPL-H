@@ -20,6 +20,7 @@ class DataPanenController extends Controller
     {
       $this->middleware('auth');
     }
+
     public function index()
     {
 
@@ -71,7 +72,7 @@ class DataPanenController extends Controller
         'user_id'   => $user->id
       );
 
-      $data = $request->all();
+    //  $data = $request->all();
       //dd($data);
 
       datapanen::create($form_data);
@@ -145,7 +146,7 @@ class DataPanenController extends Controller
 
       datapanen::whereId($id)->update($form_data);
 
-      return redirect('datapanen')->with('success', 'Data is successfully updated');
+      return redirect('petani/datapanen')->with('success', 'Data is successfully updated');
     }
 
     /**

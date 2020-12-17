@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\tanggapan;
 use App\User;
 use App\datapanen;
+use Auth;
 
 class TanggapanController extends Controller
 {
@@ -17,6 +18,7 @@ class TanggapanController extends Controller
      */
     public function index()
     {
+        $tanggapan = tanggapan::all();
         return view('pemborong.tanggapan');
     }
 
@@ -40,17 +42,24 @@ class TanggapanController extends Controller
     {
        $request->validate([
          'harga'=>'required|numeric',
-         'deskripsi'=> 'required|alpha'
+         'deskripsi'=> 'required|alpha',
        ]);
 
+      // $datapanen = Auth::datapanen();
 
-       $tanggapan = $request->all();
-       $tanggapan['user_id'] = auth()->user()->id;
+      $user = Auth::user();
 
+      $form = array(
+        'harga' => $request->harga,
+        'deskripsi' => $request->deskripsi,
+        'user_id' => $user->id,
+        'datapanen_id' =>$request->datapanen_id
+      );
 
-       tanggapan::create($tanggapan);
-
-       return back();
+      tanggapan::create($form);
+      //$data = $request->all();
+      //dd($data);
+      return redirect()->back();
     }
 
     /**
@@ -61,7 +70,8 @@ class TanggapanController extends Controller
      */
     public function show($id)
     {
-        //
+      $datapanen = datapanen::find($id);
+      return view('pemborong.tanggapan', compact('datapanen'));
     }
 
     /**

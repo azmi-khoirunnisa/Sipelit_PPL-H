@@ -70,9 +70,8 @@
                             <div class="col-md-6">
                               <input type="file" name="image" />
                             </div>
+                            <!--<input type="hidden" name="toko_id" value="$toko->id">!-->
                           </div>
-
-
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
