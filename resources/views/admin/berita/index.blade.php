@@ -18,7 +18,7 @@
         @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-danger">Hapus Data</button>
-        <a href="{{ route('berita.edit', $data->id)}}" class="btn btn-warning">Edit</a>
+        <a href="{{ route('berita.edit', $data->id)}}" class="btn btn-warning">Ubah Data</a>
       </form>
     </div>
   </div>

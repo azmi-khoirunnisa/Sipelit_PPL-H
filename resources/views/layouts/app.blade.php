@@ -34,7 +34,7 @@
                     <!-- Left Side Of Navbar -->
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto" style="font-family:cursive;;">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -42,7 +42,7 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Daftar') }}</a>
                                 </li>
                             @endif
                         @else
@@ -71,6 +71,7 @@
 
         <main class="py-4">
             @yield('content')
+            @include('sweetalert::alert')
         </main>
     </div>
 </body>

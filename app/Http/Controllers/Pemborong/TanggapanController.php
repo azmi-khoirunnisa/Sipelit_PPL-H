@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Pemborong;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\tanggapan;
 use App\User;
 use App\datapanen;
+use App\data_tanggapan;
 use Auth;
+
 
 class TanggapanController extends Controller
 {
@@ -19,7 +22,7 @@ class TanggapanController extends Controller
     public function index()
     {
         $tanggapan = tanggapan::all();
-        return view('pemborong.tanggapan');
+        return view('pemborong.tanggapan',compact('tanggapan'));
     }
 
     /**
@@ -42,7 +45,7 @@ class TanggapanController extends Controller
     {
        $request->validate([
          'harga'=>'required|numeric',
-         'deskripsi'=> 'required|alpha',
+         'deskripsi'=> 'required',
        ]);
 
       // $datapanen = Auth::datapanen();
@@ -71,7 +74,9 @@ class TanggapanController extends Controller
     public function show($id)
     {
       $datapanen = datapanen::find($id);
-      return view('pemborong.tanggapan', compact('datapanen'));
+      $tanggapan = tanggapan::where('datapanen_id',$id)->get();
+      $balasan = data_tanggapan::where('datapanen_id',$id)->get();
+      return view('pemborong.tanggapan', compact('datapanen','tanggapan','balasan'));
     }
 
     /**

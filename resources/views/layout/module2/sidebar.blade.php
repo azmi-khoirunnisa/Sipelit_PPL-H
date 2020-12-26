@@ -18,6 +18,11 @@
             </a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('petani.pembayaran')}}">
+                <i class="nav-icon icon-paypal"></i> Pembayaran
+            </a>
+        </li>
 
             </ul>
 </nav>

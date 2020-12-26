@@ -9,11 +9,11 @@
         <li class="nav-title">MANAJEMEN</li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.users.index') }}">
-                <i class="nav-icon icon-people"></i> Daftar Pengguna
+                <i class="nav-icon icon-people"></i> Akun Pengguna
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link">
+            <a class="nav-link" href="{{ route('admin.datapanen')}}">
                 <i class="nav-icon icon-pie-chart"></i> Daftar Data Panen
             </a>
         </li>

@@ -20,6 +20,8 @@
             <button class="sidebar-minimizer brand-minimizer" type="button"></button>
         </div>
         @yield('content')
+				@include('sweetalert::alert')
+
     </div>
 
     <footer class="app-footer">

@@ -2,21 +2,19 @@
 
 @section('content')
 <div class="container">
+  @if (count($errors) > 0)
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error}}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
    <div class="row justify-content-center">
        <div class="col-md-8">
            <div class="card">
                <div class="card-header">Create Your Account</div>
-
-               @if (count($errors) > 0)
-               <div class="alert alert-danger">
-                 <ul>
-                   @foreach ($errors->all() as $error)
-                   <li>{{ $error}}</li>
-                   @endforeach
-                 </ul>
-               </div>
-               @endif
-
                <div class="card-body">
                    <form method="POST" action="{{ route('daftar.create')}}">
                        @csrf
@@ -116,8 +114,9 @@
                        <div class="form-group row mb-0">
                            <div class="col-md-6 offset-md-4">
                                <button type="submit" class="btn btn-primary">
-                                   {{ __('Register') }}
+                                   {{ __('Daftar') }}
                                </button>
+                               <a href="#" class="btn btn-warning">Batal</a>
                            </div>
 
                        </div>

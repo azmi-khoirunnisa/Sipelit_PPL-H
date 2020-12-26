@@ -15,7 +15,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="card">
-              <div class="card-header">Post Your Data</div>
+              <div class="card-header">Ubah Data Panen</div>
 
               <div class="card-body">
             <form method="post" action="{{ route('datapanen.update', $data->id) }}" enctype="multipart/form-data">
@@ -52,7 +52,7 @@
                     </div>
 
                   <div class="form-group text-center">
-                    <input type="submit" name="edit" class="btn btn-primary input-lg" value="Edit" />
+                    <input type="submit" name="edit" class="btn btn-primary input-lg" value="Simpan" />
                     <a href="{{ route('datapanen.index')}}" class="btn btn-default">Batal</a>
                   </div>
               </form>

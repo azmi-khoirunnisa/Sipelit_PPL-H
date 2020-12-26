@@ -5,7 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
           <div align="center">
-            <h1>Dashboard Petani</h1>
+            <h1>Selamat Datang Kembali</h1>
+            
           </div>
 
             <!--<div align="right">

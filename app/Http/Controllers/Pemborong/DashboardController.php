@@ -20,9 +20,8 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $hasil = datapanen::all();
-      //  dd($hasil);
-       return view ('pemborong.dashboard', ['liat'=>$hasil]);
+
+     return view ('pemborong.dashboard');
     }
 
     /**
@@ -95,5 +94,12 @@ class DashboardController extends Controller
     {
       $berita = berita::all();
       return view('pemborong.berita',compact('berita'));
+    }
+
+    public function panen()
+    {
+      $hasil = datapanen::all();
+     // dd($hasil);
+     return view ('pemborong.panen', ['liat'=>$hasil]);
     }
 }

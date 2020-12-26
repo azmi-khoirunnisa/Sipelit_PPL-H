@@ -41,11 +41,15 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
+      $messages = [
+        'required' => ':attribute kosong, Mohon isi bidang ini'
+
+      ];
       $request->validate([
           'judul'         =>  'required|string',
           'image'         =>  'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           'deskripsi'     =>  'required|string'
-      ]);
+      ], $messages);
 
 
       $image = $request->file('image');
@@ -64,7 +68,7 @@ class BeritaController extends Controller
 
       berita::create($form_data);
 
-      return redirect('admin')->with('success', 'Data Added successfully.');
+      return redirect('admin')->with('success', 'Data Informasi Pertanian Berhasil di unggah.');
     }
 
     /**

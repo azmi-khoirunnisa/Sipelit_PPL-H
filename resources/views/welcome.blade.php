@@ -13,8 +13,8 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
+                color: #139157;
+                font-family: "Brush Script Std", cursive;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
@@ -49,7 +49,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #139157;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -73,7 +73,7 @@
                         <a href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Daftar</a>
                         @endif
                     @endauth
                 </div>
@@ -96,6 +96,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>!-->
+                @include('sweetalert::alert')
             </div>
         </div>
     </body>

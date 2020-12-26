@@ -25,8 +25,8 @@
                 <strong>Account</strong>
             </div>
             <div class="divider"></div>
-            <a class="dropdown-item" href="#">
-                <i class="fa fa-shield"></i> Lock Account
+            <a class="dropdown-item" href="{{ route('user.profile', Auth::user()->id)}}">
+                <i class="fa fa-shield"></i> Akun Saya
             </a>
             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">

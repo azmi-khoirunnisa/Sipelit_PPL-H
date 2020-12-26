@@ -18,9 +18,9 @@
                   <tr align="center">
                     <th width="15%">Judul</th>
                     <th width="15%">Gambar</th>
-                    <th width="10%">Harga</th>
+                    <th width="8%">Harga</th>
                     <th width="20%">Deskripsi</th>
-                    <th width="20%">Action</th>
+                    <th width="22%">Action</th>
                   </tr>
                   @foreach($data as $row)
                   <tr align="center">
@@ -30,12 +30,16 @@
                     <td>{{ $row->deskripsi}}</td>
                     <td>
                       <a href="{{ route('datapanen.show', $row->id)}}" class="btn btn-primary">Lihat</a>
-                      <a href="{{ route('datapanen.edit', $row->id)}}" class="btn btn-warning">Edit</a>
+                      <a href="{{ route('datapanen.edit', $row->id)}}" class="btn btn-warning">Ubah</a>
+                    </td>
+                    <td>
+                      <a href="{{ route('petani.tanggapan', $row->id)}}" class="btn btn-info">Tanggapan</a>
+                    </td>
                       <td>
                       <form action="{{ route('datapanen.destroy', $row->id)}}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="submit"class="btn btn-danger">Delete</button>
+                        <button type="submit"class="btn btn-danger">Hapus</button>
                       </form>
                       </td>
                     </td>

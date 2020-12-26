@@ -1,6 +1,9 @@
 <?php
 
 
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +16,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  //Alert::question('Question Title', 'Question Message');
+return view('welcome');
 });
 
 
@@ -39,16 +43,27 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('/berita/edit/{id}','Admin\BeritaController@edit')->name('berita.edit');
     Route::patch('/berita/update','Admin\BeritaController@update')->name('berita.update');
     Route::delete('berita/hapus/{id}','Admin\BeritaController@destroy')->name('berita.destroy');
-  });
-
-  Route::prefix('pemborong')->group(function(){
-    Route::get('/',function(){
-      return view('pemborong');
-    })->name('pemborong');
-    Route::resource('/tanggapan','Pemborong\TanggapanController');
-    Route::get('/berita','Pemborong\DashboardController@berita')->name('pemborong.berita');
+    Route::get('/datapanen','Admin\DataPanenController@index')->name('admin.datapanen');
   });
 });
+
+
+  Route::group(['middleware'=>['auth']],function(){
+    Route::prefix('pemborong')->group(function(){
+      Route::get('/',function(){
+        return view('pemborong');
+      })->name('pemborong');
+      Route::resource('/tanggapan','Pemborong\TanggapanController');
+      Route::resource('/pembayaran','Pemborong\PembayaranController');
+      Route::get('/berita','Pemborong\DashboardController@berita')->name('pemborong.berita');
+      Route::get('/panen','Pemborong\DashboardController@panen')->name('pemborong.panen');
+      Route::post('/tanggapan/store','Pemborong\TanggapanController@store')->name('pemborong.tanggapan.store');
+      Route::get('/pembayaran/{id}','Pemborong\PembayaranController@show')->name('pemborong.pembayaran');
+      Route::get('/data_pembayaran','Pemborong\PembayaranController@pembayaran')->name('pemborong.data_pembayaran');
+  });
+});
+
+
 
 
 /*Route::namespace('petani')->prefix('petani')->middleware(['auth','auth.petani'])->name('petani.')->group(function(){
@@ -65,10 +80,16 @@ Route::group(['middleware'=>['auth']], function(){
     })->name('petani.dashboard');
     Route::resource('/datapanen', 'Petani\DataPanenController');
     Route::get('/berita','Petani\DashboardController@berita')->name('petani.berita');
+    Route::get('/tanggapan/{id}','Petani\TanggapanController@show')->name('petani.tanggapan');
+    Route::get('/pembayaran','Petani\DataPanenController@pembayaran')->name('petani.pembayaran');
+    Route::get('/buat_tanggapan/{id}','Petani\TanggapanController@buat_tanggapan')->name('petani.buat_tanggapan');
+    Route::post('/buat_tanggapan/simpan','Petani\TanggapanController@simpan')->name('petani.buat_tanggapan.store');
   });
 });
 
+  Route::get('/daftar','daftarController@index')->name('daftar');
 
+  Route::post('/daftar/create','daftarController@create')->name('daftar.create');
 
 
 

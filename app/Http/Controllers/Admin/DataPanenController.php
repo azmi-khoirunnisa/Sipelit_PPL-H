@@ -14,7 +14,8 @@ class DataPanenController extends Controller
    * @return \Illuminate\Http\Response
    */
    public function index() {
-    return view('admin.datapanen.index')->with('datapanen', datapanen::all());
+    $datapanen = datapanen::all();
+    return view('admin.datapanen.index',compact('datapanen'));
  }
 
     /**

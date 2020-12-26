@@ -1,7 +1,6 @@
-@extends('layout.master')
+@extends('layout.universal')
 
 @section('content')
-
 
 <div class="container">
     <div class="row justify-content-center">
@@ -32,7 +31,7 @@
                 </tbody>
               </table>
                 <div class="form-group text-center">
-                  <a href="{{ route('user.edit')}}" class="btn btn-primary">edit</a>
+                  <a href="{{ route('user.edit')}}" class="btn btn-primary">Ubah Akun</a>
                 </div>
               </div>
 </div>

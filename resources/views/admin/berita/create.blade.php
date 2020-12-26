@@ -2,17 +2,18 @@
 
 @section('content')
 
-@if($errors->any())
-<div class="alert alert-danger">
-  <ul>
-    @foreach($errors->all() as $error)
-    <li>{{ $error}}</li>
-    @endforeach
-  </ul>
-</div>
-@endif
+
 
 <div class="container" style="margin-top:30px;">
+  @if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error)
+      <li>{{ $error}}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -51,7 +52,7 @@
                         </div>
 
                         <div class="form-group row">
-                          <label class="col-md-4 col-form-label text-md-right">Pilih Gambar</label>
+                          <label class="col-md-4 col-form-label text-md-right">Gambar</label>
                             <div class="col-md-6">
                               <input type="file" name="image" />
                             </div>
@@ -59,8 +60,8 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <input type="submit" name="add" class="btn btn-primary input-lg" value="Add" />
-                                <a href="" class="btn btn-warning">Back</a>
+                                <input type="submit" name="add" class="btn btn-primary input-lg" value="Simpan" />
+                                <a href="{{ route('berita.index')}}" class="btn btn-warning">Batal</a>
                             </div>
                         </div>
                     </form>
@@ -68,5 +69,6 @@
             </div>
         </div>
     </div>
+    @include('sweetalert::alert')
 </div>
 @endsection

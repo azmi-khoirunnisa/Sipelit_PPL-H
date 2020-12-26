@@ -16,7 +16,7 @@
                     </ul>
                   </div>
                   @endif
-                    <form method="POST" action="{{ route('tanggapan.store')}}">
+                    <form method="POST" action="{{ route('pemborong.tanggapan.store')}}">
                         @csrf
 
                         <div class="form-group row">
@@ -61,5 +61,33 @@
             </div>
         </div>
     </div>
+
+    <div class="row justify-content-center" >
+        <div class="col-md-8">
+          <div class="card-header"><center>Tanggapan</center></div>
+            <div class="card">
+          @foreach($tanggapan as $tanggapan)
+             <div class="card-body">
+               <h1 class="card-text">{{ $tanggapan->user_id}}</h1>
+               <b class="card-text">{{ $tanggapan->harga}}</b>
+               <p class="card-text">{{ $tanggapan->deskripsi}}</p>
+             </div>
+          @endforeach
+         </div>
+       </div>
+     </div>
+     <div class="row justify-content-center" >
+         <div class="col-md-8">
+           <div class="card-header"><center>Balasan dari Petani</center></div>
+             <div class="card">
+           @foreach($balasan as $balasan)
+              <div class="card-body">
+                <b class="card-text">{{ $balasan->harga}}</b>
+                <p class="card-text">{{ $balasan->deskripsi}}</p>
+              </div>
+           @endforeach
+          </div>
+        </div>
+      </div>
 </div>
 @endsection

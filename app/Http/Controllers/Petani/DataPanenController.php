@@ -8,6 +8,7 @@ use App\datapanen;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Auth;
+use App\pembayaran;
 
 class DataPanenController extends Controller
 {
@@ -51,12 +52,16 @@ class DataPanenController extends Controller
      */
     public function store(Request $request)
     {
-      $request->validate([
-          'Judul'         =>  'required|alpha',
+      $messages = [
+        'required' => ':attribute Mohon diisi',
+
+      ];
+      $this->validate($request,[
+          'Judul'         =>  'required|string',
           'image'         =>  'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           'Harga'         =>  'required|numeric',
-          'deskripsi'     =>  'required|alpha'
-      ]);
+          'deskripsi'     =>  'required|string'
+      ],$messages);
 
 
       $image = $request->file('image');
@@ -77,7 +82,7 @@ class DataPanenController extends Controller
 
       datapanen::create($form_data);
 
-      return redirect('datapanen')->with('success', 'Data Added successfully.');
+      return redirect('petani/datapanen')->with('success', 'Data Added successfully.');
     }
 
     /**
@@ -161,5 +166,11 @@ class DataPanenController extends Controller
         $data->delete();
 
         return redirect('datapanen')->with('success', 'Data is successfully deleted');
+    }
+
+    public function pembayaran()
+    {
+      $pembayaran = pembayaran::all();
+      return view('petani.pembayaran',compact('pembayaran'));
     }
 }
